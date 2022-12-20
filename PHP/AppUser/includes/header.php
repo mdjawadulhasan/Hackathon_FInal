@@ -1,16 +1,3 @@
-<?php
-$msg = "";
-$conn = mysqli_connect('localhost', 'root', '', 'phawa');
-$query = "SELECT Msg FROM notificationtbl ORDER BY Notificationid DESC LIMIT 1";
-$result = mysqli_query($conn, $query);
-
-while ($r = mysqli_fetch_array($result)) {
-    $msg = $r['Msg'];
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,11 +49,9 @@ while ($r = mysqli_fetch_array($result)) {
 
 
 <header class="header">
-    <a href="PatientHome.php" class="logo"><i class="fas fa-laptop-medical"></i>Public Project Info</a>
+    <a href="UserHome.php" class="logo"><i class="fas fa-laptop-medical"></i>Public Project Info</a>
     <nav class="navbar">
-        <a href="Patprofile.php"><i class="fas fa-user"></i></a>
-        <a href="javascript:myFunction();"> <i class="fas fa-bell"></i></a>
-        <a href="Patlogout.php"><i class="fas fa-sign-out-alt"></i></a>
+        <a href="../logout.php"><i class="fas fa-sign-out-alt"></i></a>
     </nav>
 </header>
 

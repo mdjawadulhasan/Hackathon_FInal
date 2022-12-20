@@ -30,8 +30,8 @@ if (isset($_POST["submit"])) {
 
     if ($count == 1) {
         session_start();
-        $_SESSION["user_name"] = $_POST["user_name"];
-        header("refresh: 0; url=UserHome.php");
+        $_SESSION["excuser_name"] = $_POST["user_name"];
+        header("refresh: 0; url=EXCHome.php");
         mysqli_close($conn);
         exit();
     } else {
@@ -40,7 +40,7 @@ if (isset($_POST["submit"])) {
                "Try Again",
                 "error"
               )</script>';
-        header("refresh: 2; url=AppuserSignin.php");
+        header("refresh: 2; url=EXCSignin.php");
     }
 }
 

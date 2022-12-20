@@ -2,7 +2,7 @@
 if (session_status() >= 1) {
     session_start();
     if (isset($_SESSION["excuser_name"])) {
-        header("refresh: 0; url=UserHome.php");
+        header("refresh: 0; url=EXCHome.php");
     }
 }
 ?>
@@ -77,7 +77,7 @@ if (session_status() >= 1) {
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h3 class="register-heading">Registration</h3>
 
-                            <form action="AppUserSignupProc.php" name="signupForm" onsubmit="return validateForm()"
+                            <form action="EXCUserSignupProc.php" name="signupForm" onsubmit="return validateForm()"
                                 method="post" class="row register-form">
                                 <div class="col-md-6">
 
@@ -118,7 +118,6 @@ if (session_status() >= 1) {
                                         <option value="BBA">PWD</option>
                                         <option value="LGD">LGD</option>
                                         <option value="MOEDU">MOEDU</option>
-
                                     </select>
                                 </div>
 
