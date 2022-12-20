@@ -31,7 +31,6 @@ function showprojects($sql)
         echo '<td><center>' . $r['completion'] . '</center></td>';
         echo '<td><center>' . $r['actual_cost'] . '</center></td>';
         echo "<td><a href=\"ReportProject.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
-
         echo '</tr><center>';
     }
 

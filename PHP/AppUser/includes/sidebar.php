@@ -6,7 +6,10 @@
     <div class="text">Menu</div>
     <ul>
       Project Viusalizer
-      <li><a href="./VisualizeProject.php"><i class="fas fa-file-medical"></i>Completion Time</a></li>
+      <li><a href="./VisualizeProject.php">Completion Time</a></li>
+      <li><a href="./VisualizeLocation.php">Location Wise</a></li>
+      <li><a href="./Visualizeyear.php">Year Wise</a></li>
+
 
 
 
