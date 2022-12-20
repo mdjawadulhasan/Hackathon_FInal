@@ -57,7 +57,12 @@
       </div>
       <br>
       <div class="btn">
-        <a href="EXCUser/AppuserSignin.php" class="loginbtn">Login as EXC User<span
+        <a href="EXCUser/EXCSignin.php" class="loginbtn">Login as EXC User<span
+            class="fas fa-sign-in-alt"></span></a>
+      </div>
+      <br>
+      <div class="btn">
+        <a href="GovtAgency/GovtSignin.php" class="loginbtn">Login as Government Agency<span
             class="fas fa-sign-in-alt"></span></a>
       </div>
 
