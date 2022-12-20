@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.header {
+    padding: 1rem 9%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.header .logo {
+    font-size: 2rem;
+    color: #444;
+}
+
+.header .logo i {
+    color: #16a085;
+}
+
+.header .navbar a {
+    font-size: 1.5rem;
+    color: #777;
+    margin-left: 2rem;
+}
+
+.header .navbar a:hover {
+    color: #16a085;
+}
+
+.sidediv {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.btn {
+    position: absolute;
+    margin-top: 70px;
+    top: 15px;
+    left: 25px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    background: #16a085;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease;
+}
+
+.btn.click {
+    left: 260px;
+}
+
+.btn span {
+    color: white;
+    font-size: 28px;
+    line-height: 45px;
+}
+
+.btn.click span:before {
+    content: "\f00d";
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: -250px;
+    background: #16a085;
+    transition: left 0.4s ease;
+}
+
+.sidebar.show {
+    left: 0px;
+    top: 80px;
+}
+
+.sidebar .text {
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background: #16a085;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    background: #16a085;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+
+nav ul li {
+    line-height: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+nav ul li.active a {
+    color: rgb(2, 22, 22);
+    background: #16a085;
+    border-left-color: rgb(246, 250, 250);
+}
+
+nav ul li a:hover {
+    background: #16a085;
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul .feat-show.show {
+    display: block;
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-top: none;
+}
+
+nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 80px;
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: #16a085;
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: white;
+    background: #1e1e1e !important;
+}
+
+nav ul li a:hover {
+    color: white;
+    background: #1e1e1e !important;
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+nav i {
+    color: white;
+}
+
+.showval {
+    margin-left: 100px;
+    margin-right: 1000px;
+    top: 100px;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.footer {
+    position: fixed;
+    padding: 10px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1a312d;
+    opacity: 1;
+    color: white;
+    text-align: center;
+}
+
+
+/* Book Appointment */
+
+.tablestyle {
+    border-collapse: collapse;
+    margin: 0px 0;
+    margin-bottom: 101px;
+    font-size: 0.9rem;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.tablestyle thead tr {
+    background-color: #16a085;
+    color: #070000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tablestyle th,
+.tablestyle td {
+    padding: 12px 15px;
+}
+
+.tablestyle tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.tablestyle tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tablestyle tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.tablestyle tbody tr:hover {
+    font-weight: bold;
+    color: rgb(15, 14, 14);
+    background-color: #6ca8a0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Donor List */
+
+.infoinput {
+    padding: 0% 9rem;
+}
+
+.form-control {
+    background-color: #f8f8ff;
+}
+
+.form-control:hover {
+    background-color: #f8f8ff;
+}
+
+.vsubmitbtn {
+    float: left;
+    color: #fff;
+    border-color: #16a085;
+    background-color: #16a085;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    font-size: .875rem;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 25px;
+}
+
+.vsubmitbtn:hover {
+    transform: translateY(2%);
+    cursor: pointer;
+}
+
+.Dnrlist {
+    margin: auto;
+    width: 70%;
+}
+
+.Dnrin i {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -170px;
+}
+
+#dnrl1 {
+    font-size: 1.3rem;
+}
+
+#Dnrsrc {
+    background: #e6e6e6;
+    color: rgb(3, 2, 2);
+    letter-spacing: 0.5px;
+    padding: 6px 6px;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.DonorList-Form {
+    margin-left: 330px;
+}
+
+.dnrimg {
+    float: left;
+    margin-top: 100px;
+    margin-left: 0px;
+}
+
+.dnrtbl {
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+
+
+/*Doctor Tbl */
+
+.Dctrlist {
+    padding: 5px 10px;
+    margin: auto;
+}
+
+
+/* Users Tbl */
+
+.hd h2 {
+    padding: 5px;
+    color: #009879;
+    text-align: center;
+}
+
+.Patlist {
+    margin: auto;
+    width: 70%;
+}
+
+.Dnrin i {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -170px;
+}
+
+#dnrl1 {
+    font-size: 1.3rem;
+}
+
+#Dnrsrc {
+    background: #e6e6e6;
+    color: rgb(3, 2, 2);
+    letter-spacing: 0.5px;
+    padding: 6px 6px;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.DonorList-Form {
+    margin-left: 330px;
+}
+
+.dnrimg {
+    float: left;
+    margin-top: 100px;
+    margin-left: 0px;
+}
+
+.dnrtbl {
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+
+.msgbtn {
+    color: #fff;
+    border-color: #007bff;
+    background-color: #007bff;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    font-size: 1.5rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 25%;
+    margin-left: 38%;
+    text-align: center;
+}
+
+.msgbtn:hover {
+    transform: translateY(2%);
+    cursor: pointer;
+}
+
+.msgsentbtn {
+    color: #fff;
+    border-color: #007bff;
+    background-color: #007bff;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 25%;
+    margin-left: 38%;
+    text-align: center;
+}
+
+.msgsentbtn:hover {
+    transform: translateY(2%);
+    cursor: pointer;
+}
+
+.ambreqtbl {
+    width: 100%;
+    padding-left: 500px;
+}
+
+.printbtn {
+    margin-left: 700px;
+    color: #fff;
+    border-color: #0c2e9e;
+    background-color: #1114bd;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    font-size: 0.875rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.printbtn:hover {
+    transform: translateY(2%);
+    cursor: pointer;
+}

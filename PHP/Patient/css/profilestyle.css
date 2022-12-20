@@ -1,0 +1,82 @@
+.profile {
+    padding: 20px 19%;
+}
+
+.usercard {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.imgcontainer {
+    width: 50%;
+    margin: 0 auto;
+}
+
+img {
+    border-radius: 50%;
+    background-color: rgb(145, 148, 151);
+}
+
+.container {
+    padding: 2px 16px;
+    text-align: center;
+}
+
+.userinfo {
+    margin: 0 auto;
+    background-color: #e9ecef;
+    padding: 100px;
+    box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+}
+
+.editbtn {
+    float: right;
+    color: #fff;
+    border-color: #fb6340;
+    background-color: #fb6340;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    font-size: .875rem;
+    padding: 10px;
+}
+
+.editbtn:hover {
+    transform: translateY(2%);
+    cursor: pointer;
+}
+
+.savebtn {
+    float: right;
+    color: #fff;
+    border-color: #16a085;
+    background-color: #16a085;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+    font-size: .875rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.savebtn:hover {
+    transform: translateY(2%);
+    cursor: pointer;
+}
