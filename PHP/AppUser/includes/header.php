@@ -37,6 +37,11 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet" />
+
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
@@ -48,6 +53,42 @@
             color: #16a085;
             font-size: 2rem;
         }
+
+        .navbar i {
+            color: #16a085;
+            font-size: 2rem;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .marker {
+            background-image: url('https://docs.mapbox.com/help/demos/custom-markers-gl-js/mapbox-icon.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
     </style>
 </head>
 
@@ -56,7 +97,7 @@
     <a href="UserHome.php" class="logo"><i class="fas fa-laptop-medical"></i>Public Project Info</a>
     <nav class="navbar">
         <a href="./ViewProjects.php">View Projects</i></a>
-       
+
 
 
 

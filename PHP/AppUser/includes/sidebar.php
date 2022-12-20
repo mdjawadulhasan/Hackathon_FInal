@@ -9,6 +9,7 @@
       <li><a href="./VisualizeProject.php">Completion Time</a></li>
       <li><a href="./VisualizeLocation.php">Location Wise</a></li>
       <li><a href="./Visualizeyear.php">Year Wise</a></li>
+      <li><a href="./Visualizemap.php">Project Location</a></li>
 
 
 
