@@ -32,7 +32,7 @@ require_once './includes/sidebar.php';
 <head>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../Patient/css/profilestyle.css">
+    <link rel="stylesheet" href="../AppUser/css/profilestyle.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 </head>
 
