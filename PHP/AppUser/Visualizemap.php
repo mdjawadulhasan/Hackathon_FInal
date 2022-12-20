@@ -14,7 +14,10 @@ $sql = "SELECT * FROM proj";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     while ($r = mysqli_fetch_assoc($result)) {
-        $name = $r['name'];
+
+        $id = $r['project_id'];
+        $val = $r['name'];
+        $name = "<a href=\"ReportProject.php?project_id=$id\"><input type='submit' value='' >. $val.</a>";
         $cost = $r['cost'];
         $lat = $r['latitude'];
         $long = $r['longitude'];

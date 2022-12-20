@@ -15,7 +15,7 @@ $result = mysqli_query($conn, $query);
 
 while ($row = mysqli_fetch_assoc($result)) {
 
-  $Totalcost= $row['completion_percentage'];
+  $Totalcost = $row['completion_percentage'];
   $project_name = $row['project_name'];
 
 }
