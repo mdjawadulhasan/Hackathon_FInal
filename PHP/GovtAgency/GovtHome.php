@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if(!isset($_SESSION["gvuser_name"])){
+    header("location:GovtSignin.php");
+}
 
 $title = 'View Projects';
 require_once './includes/header.php';
@@ -47,7 +50,7 @@ function ShowProposals($sql)
 
         <div class="srchdt">
             <div class="deptin">
-                <label id="aptl1" for="Search">Seacrh By Category: </label>
+                <label id="aptl1" for="Search">Seacrh By Location: </label>
                 <input id="aptsrc" type="text" name="search" value="<?php if (isset($_POST['search']))
                     echo $_POST['search']; ?>"><i class="fas fa-search"></i>
             </div>
@@ -56,10 +59,10 @@ function ShowProposals($sql)
             <!-- <div class="yearin">
                 <label id="aptl1" for="Search">Seacrh By Year: </label>
                 <input id="aptsrc" type="text" name="y1" value="<?php if (isset($_POST['y1']))
-                    echo $_POST['y1']; ?>">To
+                    // echo $_POST['y1']; ?>">To
 
                 <input id="aptsrc" type="text" name="y2" value="<?php if (isset($_POST['y2']))
-                    echo $_POST['y2']; ?>"><i class="fas fa-search"></i>
+                    // echo $_POST['y2']; ?>"><i class="fas fa-search"></i>
             </div> -->
 
 
@@ -98,32 +101,19 @@ function ShowProposals($sql)
 
 <?php
 if (isset($_POST["submit"])) {
-    $dept = $_POST['search'];
-    // $year1 = $_POST['y1'];
-    // $year2 = $_POST['y2'];
-
-
-    if (empty($year1) && empty($year2)) {
-
-        $qry = "SELECT * FROM project WHERE category like '%$dept%'";
-
-    } else if ($dept == null) {
-        $time_input1 = strtotime($year1);
-        $time_input2 = strtotime($year2);
-
-        // echo ($year1);
-
-        //SELECT * FROM wp_osd_properties WHERE `listing_expiration` < '2020-08-05'
-        // $qry = "SELECT * FROM project where 'project_start_time' >=  '$year1' ";
-
-        // qry = "SELECT * FROM project WHERE ".$time_input1." AND ". $time_input2";
-
-        //$qry = "SELECT * FROM project where BETWEEN '$time_input1' AND   '$time_input2' ";
-
+    $loc=$_POST['search'];
+    if(!empty($loc)){
+        $loc = "%".$loc."%";
+        if($_SESSION['type']==='ECNEC') $qry = "SELECT * FROM props WHERE cost>'50' AND location like '$loc'";
+        else if($_SESSION['TYPE']==='MOP') $qry = "SELECT * FROM props WHERE cost<='50' AND location like '$loc'";
+        ShowProposals($qry);
     }
-
-} else {
-    $qry = "SELECT * FROM props";
+    
+    
+ }
+ else {
+    if($_SESSION['type']==='ECNEC') $qry = "SELECT * FROM props WHERE cost>'50'";
+    else if($_SESSION['TYPE']==='MOP') $qry = "SELECT * FROM props WHERE cost<='50'";
     ShowProposals($qry);
 }
 

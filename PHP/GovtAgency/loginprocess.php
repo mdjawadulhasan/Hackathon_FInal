@@ -27,10 +27,12 @@ if (isset($_POST["submit"])) {
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $count = mysqli_num_rows($result);
-
+    $type=$row['UType_Criteria'];
+    // var_dump($type);
     if ($count == 1) {
         session_start();
         $_SESSION["gvuser_name"] = $_POST["user_name"];
+        $_SESSION['type']=$type;
         header("refresh: 0; url=GovtHome.php");
         mysqli_close($conn);
         exit();
