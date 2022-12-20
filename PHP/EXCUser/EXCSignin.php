@@ -1,8 +1,8 @@
 <?php
 if (session_status() >= 1) {
     session_start();
-    if (isset($_SESSION["user_name"])) {
-        header("refresh: 0; url=PatientHome.php");
+    if (isset($_SESSION["excuser_name"])) {
+        header("refresh: 0; url=UserHome.php");
     }
 }
 ?>
@@ -28,7 +28,7 @@ if (session_status() >= 1) {
 
 
 
-    <link rel="icon" href="../../Images/ticon.svg" type="image/icon type">
+    <link rel="icon" href="../../Images/homepp.svg" type="image/icon type">
     <title>Login</title>
 </head>
 
@@ -77,7 +77,7 @@ if (session_status() >= 1) {
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h3 class="register-heading">Registration</h3>
 
-                            <form action="Patsignupprocess.php" name="signupForm" onsubmit="return validateForm()"
+                            <form action="AppUserSignupProc.php" name="signupForm" onsubmit="return validateForm()"
                                 method="post" class="row register-form">
                                 <div class="col-md-6">
 
@@ -90,10 +90,36 @@ if (session_status() >= 1) {
                                 <div class="col-md-6">
 
                                     <div class="form-group">
+                                        <input type="text" class="form-control" id="siname" placeholder="User Email *"
+                                            name="user_email" value="" required />
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
                                         <input type="password" class="form-control" id="sipass" placeholder="Password *"
                                             name="user_pass" value="" required />
                                     </div>
                                     <input type="submit" name="submit" id="sisubmit" class="btnRegister" />
+                                </div>
+                                <div class="form-group">
+                                    <select name="TypeCriteria" class="form-control">
+                                        <option class="hidden" selected disabled>
+                                            Executive Type
+                                        </option>
+                                        <option value="LGED">LGED</option>
+                                        <option value="RDA">RDA</option>
+                                        <option value="BREB">BREB</option>
+                                        <option value="BWDB">BWDB</option>
+                                        <option value="BPDB">BPDB</option>
+                                        <option value="BTRC">BTRC</option>
+                                        <option value="BBA">PWD</option>
+                                        <option value="LGD">LGD</option>
+                                        <option value="MOEDU">MOEDU</option>
+
+                                    </select>
                                 </div>
 
                         </div>
@@ -116,43 +142,6 @@ if (session_status() >= 1) {
         crossorigin="anonymous"></script>
     <script>
         function validateForm() {
-            let fnameval = document.forms["signupForm"]["fname"].value;
-            for (let i = 0; i < fnameval.length; i++) {
-
-                if (!isNaN(fnameval[i])) {
-                    Swal.fire(
-                        "Invalid First Name",
-                        "Try Again",
-                        "error"
-                    )
-                    return false;
-                }
-            }
-
-
-            let lnameval = document.forms["signupForm"]["lname"].value;
-            for (let i = 0; i < lnameval.length; i++) {
-
-                if (!isNaN(lnameval[i])) {
-                    Swal.fire(
-                        "Invalid Last Name",
-                        "Try Again",
-                        "error"
-                    )
-                    return false;
-                }
-            }
-
-
-            let ageval = document.forms["signupForm"]["age"].value;
-            if ((ageval % 1 != 0) || isNaN(ageval)) {
-                Swal.fire(
-                    "Invalid Age",
-                    "Try Again",
-                    "error"
-                )
-                return false;
-            }
 
             let user_nameval = document.forms["signupForm"]["user_name"].value;
             let count = 0;

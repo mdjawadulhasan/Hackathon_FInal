@@ -52,7 +52,13 @@
       </p>
 
       <div class="btn">
-        <a href="AppUser/AppuserSignin.php" class="loginbtn">Login <span class="fas fa-sign-in-alt"></span></a>
+        <a href="AppUser/AppuserSignin.php" class="loginbtn">Login as AppUser<span
+            class="fas fa-sign-in-alt"></span></a>
+      </div>
+      <br>
+      <div class="btn">
+        <a href="EXCUser/AppuserSignin.php" class="loginbtn">Login as EXC User<span
+            class="fas fa-sign-in-alt"></span></a>
       </div>
 
 

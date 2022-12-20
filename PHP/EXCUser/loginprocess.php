@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +21,8 @@ if (isset($_POST["submit"])) {
     $user_name = $_POST['user_name'];
     $user_pass = $_POST['user_pass'];
 
-  
-    $query = "SELECT * from patienttbl WHERE ptusername='$user_name' and ptpass='$user_pass';";
+
+    $query = "SELECT * from users WHERE Uname='$user_name' and Pass='$user_pass';";
 
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -32,7 +31,7 @@ if (isset($_POST["submit"])) {
     if ($count == 1) {
         session_start();
         $_SESSION["user_name"] = $_POST["user_name"];
-        header("refresh: 0; url=PatientHome.php");
+        header("refresh: 0; url=UserHome.php");
         mysqli_close($conn);
         exit();
     } else {
@@ -41,7 +40,7 @@ if (isset($_POST["submit"])) {
                "Try Again",
                 "error"
               )</script>';
-        header("refresh: 2; url=Patsignin.php");
+        header("refresh: 2; url=AppuserSignin.php");
     }
 }
 
