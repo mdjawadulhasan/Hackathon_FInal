@@ -531,6 +531,13 @@ Vaccination History */
     background-size: 100%;
 }
 
+.infoinput2 {
+    margin-top: 140px;
+    padding: 5rem 20%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 .vsubmitbtn {
     float: left;
     color: #fff;

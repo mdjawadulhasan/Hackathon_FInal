@@ -60,6 +60,9 @@
     <nav class="navbar">
         <a href="./ViewProjects.php">View Projects</i></a>
         <a href="../logout.php"><i class="fas fa-sign-out-alt"></i></a>
+        
+
+
 
     </nav>
 </header>

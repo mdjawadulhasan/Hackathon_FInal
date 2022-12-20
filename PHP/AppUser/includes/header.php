@@ -55,20 +55,13 @@
 <header class="header">
     <a href="UserHome.php" class="logo"><i class="fas fa-laptop-medical"></i>Public Project Info</a>
     <nav class="navbar">
+        <a href="./ViewProjects.php">View Projects</i></a>
         <a href="../logout.php"><i class="fas fa-sign-out-alt"></i></a>
+
+
+
     </nav>
 </header>
 
-<script>
-    function myFunction() {
-        Swal.fire({
-            position: 'top-end',
-            icon: 'warning',
-            title: '<?php echo $msg ?>',
-            showConfirmButton: false,
-            timer: 1500
-        })
-    }
-</script>
 
 <body>
