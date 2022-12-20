@@ -36,7 +36,6 @@ function showprojects($sql)
         echo '</tr><center>';
     }
 
-
     echo '</tbody>';
     echo '</table>';
 }
