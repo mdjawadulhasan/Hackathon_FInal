@@ -32,7 +32,7 @@ function showprojects($sql)
         echo '<td><center>' . $r['completion'] . '</center></td>';
         echo '<td><center>' . $r['actual_cost'] . '</center></td>';
         echo "<td><a href=\"Projectupdate.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
-
+        echo "<td><a href=\"ShowReport.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
         echo '</tr><center>';
     }
 
@@ -83,6 +83,7 @@ function showprojects($sql)
                 <th>Project Completion Percentage</th>
                 <th>Actual Cost</th>
                 <th>Update Project Data</th>
+                <th>Show Users Report</th>
             </tr>
         </thead>
         <tbody>
