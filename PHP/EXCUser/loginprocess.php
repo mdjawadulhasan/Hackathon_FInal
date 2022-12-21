@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
     $user_pass = $_POST['user_pass'];
 
 
-    $query = "SELECT * from users WHERE Uname='$user_name' and Pass='$user_pass';";
+    $query = "SELECT * from users WHERE Uname='$user_name' and Pass='$user_pass' and UType='eu';";
 
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

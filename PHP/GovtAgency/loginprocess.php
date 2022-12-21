@@ -22,17 +22,17 @@ if (isset($_POST["submit"])) {
     $user_pass = $_POST['user_pass'];
 
 
-    $query = "SELECT * from users WHERE Uname='$user_name' and Pass='$user_pass';";
+    $query = "SELECT * from users WHERE Uname='$user_name' and Pass='$user_pass' and UType='gv';";
 
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $count = mysqli_num_rows($result);
-    $type=$row['UType_Criteria'];
+    $type = $row['UType_Criteria'];
     // var_dump($type);
     if ($count == 1) {
         session_start();
         $_SESSION["gvuser_name"] = $_POST["user_name"];
-        $_SESSION['type']=$type;
+        $_SESSION['type'] = $type;
         header("refresh: 0; url=GovtHome.php");
         mysqli_close($conn);
         exit();
