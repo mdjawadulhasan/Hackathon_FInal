@@ -107,8 +107,8 @@ if (isset($_POST["submit"])) {
 
 
     $qry = "SELECT * FROM proj WHERE location like '%$dept%' and exect='$type'";
-    echo $type;
-    //showprojects($qry);
+
+    showprojects($qry);
 
 } else {
     $qry = "SELECT *FROM proj where exect='$type'";

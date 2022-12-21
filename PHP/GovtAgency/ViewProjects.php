@@ -1,13 +1,14 @@
 <?php
+
 session_start();
 if (!isset($_SESSION["gvuser_name"])) {
     header("refresh: 0; url=GovtSignin.php");
     exit();
+
 }
 
 $title = 'View Projects';
 require_once './includes/header.php';
-
 ?>
 
 
@@ -30,7 +31,8 @@ function showprojects($sql)
         echo '<td><center>' . $r['start_date'] . '</center></td>';
         echo '<td><center>' . $r['completion'] . '</center></td>';
         echo '<td><center>' . $r['actual_cost'] . '</center></td>';
-        //echo "<td><a href=\"ReportProject.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
+        echo "<td><a href=\"Projectupdate.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
+        // echo "<td><a href=\"ShowReport.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
         echo '</tr><center>';
     }
 
@@ -42,7 +44,9 @@ function showprojects($sql)
 
 
 <section class="BookApt">
-
+    <div class="titletext">
+        <h2><i class="fas fa-angle-double-right"></i> Book Appointment </h2>
+    </div>
     <form class="Bookapt-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
         <div class="srchdt">
@@ -51,6 +55,8 @@ function showprojects($sql)
                 <input id="aptsrc" type="text" name="search" value="<?php if (isset($_POST['search']))
                     echo $_POST['search']; ?>"><i class="fas fa-search"></i>
             </div>
+
+
             <div class="dtsrc">
                 <button type="submit" name="submit" class="dtsrcbtn">Search</button>
             </div>
@@ -76,7 +82,8 @@ function showprojects($sql)
                 <th>Start Date</th>
                 <th>Project Completion Percentage</th>
                 <th>Actual Cost</th>
-
+                <th>Update Project Data</th>
+                <th>Show Users Report</th>
             </tr>
         </thead>
         <tbody>
@@ -84,19 +91,27 @@ function showprojects($sql)
 
 <?php
 
+$user_name = $_SESSION["gvuser_name"];
+$query = "SELECT * FROM users WHERE Uname='$user_name';";
+$conn = mysqli_connect('localhost', 'root', '', 'dpp');
+$result = mysqli_query($conn, $query);
 
+while ($row = mysqli_fetch_assoc($result)) {
+
+    $type = $row['UType_Criteria'];
+}
 
 if (isset($_POST["submit"])) {
     $dept = $_POST['search'];
 
 
 
-    $qry = "SELECT * FROM proj WHERE location like '%$dept%'";
-
-    showprojects($qry);
+    $qry = "SELECT * FROM proj WHERE location like '%$dept%' and exect='$type'";
+    echo $type;
+    //showprojects($qry);
 
 } else {
-    $qry = "SELECT *FROM proj ";
+    $qry = "SELECT *FROM proj where exect='$type'";
     showprojects($qry);
 }
 
