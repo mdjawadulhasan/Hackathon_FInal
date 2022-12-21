@@ -56,14 +56,7 @@ function ShowProposals($sql)
             </div>
 
 
-            <!-- <div class="yearin">
-                <label id="aptl1" for="Search">Seacrh By Year: </label>
-                <input id="aptsrc" type="text" name="y1" value="<?php if (isset($_POST['y1']))
-                    // echo $_POST['y1']; ?>">To
-
-                <input id="aptsrc" type="text" name="y2" value="<?php if (isset($_POST['y2']))
-                    // echo $_POST['y2']; ?>"><i class="fas fa-search"></i>
-            </div> -->
+          
 
 
             <div class="dtsrc">

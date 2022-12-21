@@ -76,7 +76,7 @@ function showprojects($sql)
                 <th>Start Date</th>
                 <th>Project Completion Percentage</th>
                 <th>Actual Cost</th>
-                <th>Update Project Data</th>
+                <th>Submit Reports</th>
             </tr>
         </thead>
         <tbody>

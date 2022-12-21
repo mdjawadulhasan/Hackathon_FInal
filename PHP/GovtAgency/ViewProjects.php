@@ -31,8 +31,8 @@ function showprojects($sql)
         echo '<td><center>' . $r['start_date'] . '</center></td>';
         echo '<td><center>' . $r['completion'] . '</center></td>';
         echo '<td><center>' . $r['actual_cost'] . '</center></td>';
-        echo "<td><a href=\"Projectupdate.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
-        // echo "<td><a href=\"ShowReport.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
+        //echo "<td><a href=\"Projectupdate.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
+        //echo "<td><a href=\"ShowReport.php?project_id=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
         echo '</tr><center>';
     }
 
@@ -82,8 +82,7 @@ function showprojects($sql)
                 <th>Start Date</th>
                 <th>Project Completion Percentage</th>
                 <th>Actual Cost</th>
-                <th>Update Project Data</th>
-                <th>Show Users Report</th>
+
             </tr>
         </thead>
         <tbody>
@@ -106,12 +105,12 @@ if (isset($_POST["submit"])) {
 
 
 
-    $qry = "SELECT * FROM proj WHERE location like '%$dept%' and exect='$type'";
+    $qry = "SELECT * FROM proj WHERE location like '%$dept%' ";
     echo $type;
     //showprojects($qry);
 
 } else {
-    $qry = "SELECT *FROM proj where exect='$type'";
+    $qry = "SELECT *FROM proj";
     showprojects($qry);
 }
 

@@ -70,7 +70,8 @@ while ($r = mysqli_fetch_array($result)) {
 <header class="header">
     <a href="GovtHome.php" class="logo"><i class="fas fa-laptop-medical"></i>Public Project Info</a>
     <nav class="navbar">
-        <a href="./ViewProjects.php">View Projects</i></a>
+        <a href="./ViewProjects.php">View Running Projects</i></a>
+        <a href="./GovtHome.php">View Proposal</i></a>
         <a href="../logout.php"><i class="fas fa-sign-out-alt"></i></a>
     </nav>
 </header>
