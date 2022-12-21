@@ -17,7 +17,7 @@ if (mysqli_num_rows($result) > 0) {
 
         $id = $r['project_id'];
         $val = $r['name'];
-        $name = "<a href=\"ReportProject.php?project_id=$id\"><input type='submit' value='' >. $val.</a>";
+        $name = "<a href=\"Projectdetails.php?project_id=$id\"><input type='submit' value='' >. $val.</a>";
         $cost = $r['cost'];
         $lat = $r['latitude'];
         $long = $r['longitude'];
