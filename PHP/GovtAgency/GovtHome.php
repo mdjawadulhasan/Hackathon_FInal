@@ -1,90 +1,127 @@
 <?php
 session_start();
-if (!isset($_SESSION["gvuser_name"])) {
-    header("refresh: 0; url=GovtSignin.php");
-    exit();
+if(!isset($_SESSION["gvuser_name"])){
+    header("location:GovtSignin.php");
 }
 
-
-$title = 'GOVT Agency Profile';
+$title = 'View Projects';
 require_once './includes/header.php';
-$user_name = $_SESSION["gvuser_name"];
-$query = "SELECT * FROM users WHERE Uname='$user_name';";
-require_once '../conn.php';
-$result = mysqli_query($conn, $query);
+?>
 
-while ($row = mysqli_fetch_assoc($result)) {
 
-    $name = $row['Uname'];
-    $type = $row['UType_Criteria'];
-    $Email = $row['email'];
+<?php
+
+function ShowProposals($sql)
+{
+    $conn = mysqli_connect('localhost', 'root', '', 'dpp');
+    $query = $sql;
+    $result = mysqli_query($conn, $query);
+
+    while ($r = mysqli_fetch_array($result)) {
+        echo '<tr>';
+        echo '<td><center>' . $r['project_id'] . '</center></td>';
+        echo '<td><center>' . $r['name'] . '</center></td>';
+        echo '<td><center>' . $r['location'] . '</center></td>';
+        echo '<td><center>' . $r['latitude'] . '</center></td>';
+        echo '<td><center>' . $r['longitude'] . '</center></td>';
+        echo '<td><center>' . $r['exect'] . '</center></td>';
+        echo '<td><center>' . $r['cost'] . '</center></td>';
+        echo '<td><center>' . $r['timespan'] . '</center></td>';
+        echo '<td><center>' . $r['goal'] . '</center></td>';
+        echo '<td><center>' . $r['proposal_date'] . '</center></td>';
+        echo "<td><a href=\"ApproveProps.php?pid=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
+        echo "<td><a href=\"RejectProps.php?pid=$r[project_id]\"><input type='submit' value='' ><i class='fas fa-angle-double-right'></i></i></i></a></td>";
+        echo '</tr><center>';
+    }
+
+
+    echo '</tbody>';
+    echo '</table>';
 }
 
-require_once './includes/sidebar.php';
+?>
+
+
+<section class="BookApt">
+    <div class="titletext">
+        <h2><i class="fas fa-angle-double-right"></i> Book Appointment </h2>
+    </div>
+    <form class="Bookapt-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+        <div class="srchdt">
+            <div class="deptin">
+                <label id="aptl1" for="Search">Seacrh By Location: </label>
+                <input id="aptsrc" type="text" name="search" value="<?php if (isset($_POST['search']))
+                    echo $_POST['search']; ?>"><i class="fas fa-search"></i>
+            </div>
+
+
+            <!-- <div class="yearin">
+                <label id="aptl1" for="Search">Seacrh By Year: </label>
+                <input id="aptsrc" type="text" name="y1" value="<?php if (isset($_POST['y1']))
+                    // echo $_POST['y1']; ?>">To
+
+                <input id="aptsrc" type="text" name="y2" value="<?php if (isset($_POST['y2']))
+                    // echo $_POST['y2']; ?>"><i class="fas fa-search"></i>
+            </div> -->
+
+
+            <div class="dtsrc">
+                <button type="submit" name="submit" class="dtsrcbtn">Search</button>
+            </div>
+
+        </div>
+
+
+
+
+
+    </form>
+
+
+    <table class="tablestyle">
+        <thead>
+            <tr>
+                <th>Project ID</th>
+                <th>Project Name</th>
+                <th>Location</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Exec</th>
+                <th>Cost</th>
+                <th>Timespan</th>
+                <th>Goal</th>
+                <th>Proposal Date</th>
+                <th>Approve</th>
+                <th>Reject</th>
+            </tr>
+        </thead>
+        <tbody>
+</section>
+
+<?php
+if (isset($_POST["submit"])) {
+    $loc=$_POST['search'];
+    if(!empty($loc)){
+        $loc = "%".$loc."%";
+        if($_SESSION['type']==='ECNEC') $qry = "SELECT * FROM props WHERE cost>'50' AND location like '$loc'";
+        else if($_SESSION['TYPE']==='MOP') $qry = "SELECT * FROM props WHERE cost<='50' AND location like '$loc'";
+        ShowProposals($qry);
+    }
+    
+    
+ }
+ else {
+    if($_SESSION['type']==='ECNEC') $qry = "SELECT * FROM props WHERE cost>'50'";
+    else if($_SESSION['TYPE']==='MOP') $qry = "SELECT * FROM props WHERE cost<='50'";
+    ShowProposals($qry);
+}
+
 ?>
 
 
 
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../GovtAgency/css/profilestyle.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-</head>
 
-<body>
-    <div class="profile">
-        <div class="usercard">
-            <div class="imgcontainer">
-                <img src="../../Images/placeholder.jpg" alt="Avatar" style="width:100%">
-            </div>
-            <div class="container">
-                <h4><b>
-                        <?php echo $name ?>
-                    </b></h4>
-            </div>
-        </div>
-
-        <div class="userinfo">
-            <form>
-                <h6 class="heading-small text-muted mb-4">User information</h6>
-                <div class="pl-lg-4">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group focused">
-                                <label class="form-control-label" for="input-username">Name</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail"
-                                    value="<?php echo $name ?>" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label class="form-control-label" for="input-email">Email address</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail"
-                                    value="<?php echo $Email ?>" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-lg-6">
-                            <div class="form-group focused">
-                                <label class="form-control-label" for="input-last-name">User Type</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail"
-                                    value="<?php echo $type ?>" required>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <br>
-            <br>
-            <!-- <button type="button" class="editbtn" onclick="location.href='Pateditprofile.php';">Edit Profile</button> -->
-
-        </div>
-    </div>
-</body>
+<!-- <?php require_once './includes/footer.php'; ?> -->
